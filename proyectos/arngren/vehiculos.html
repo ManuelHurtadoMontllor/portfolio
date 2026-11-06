@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Codificación, adaptación a móviles, color del navegador y descripción para buscadores. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f7f2">
+    <meta name="description" content="Descubre quads, ATV y vehículos eléctricos para disfrutar de la aventura en Arngren.">
+    <title>ATV y vehículos — Arngren</title>
+    <!-- Prepara la conexión con el servidor de imágenes y carga los estilos compartidos. -->
+    <link rel="preconnect" href="https://arngren.net">
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+    <!-- Permite saltar a la zona principal con teclado o lector de pantalla. -->
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <!-- Promoción común a todas las páginas con enlace a la colección. -->
+    <div class="announcement"><p>Envío gratis en pedidos superiores a 99 € <span aria-hidden="true">·</span> <a href="#productos">Descubre la colección</a></p></div>
+    <!-- Cabecera compartida: marca, accesos al catálogo y navegación del sitio. -->
+    <header class="site-header">
+        <div class="header-main">
+            <!-- Marca enlazada al inicio; sus símbolos decorativos se ocultan a lectores de pantalla. -->
+            <a class="brand" href="index.html" aria-label="Arngren, inicio"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-name">arngren<span>.</span></span></a>
+            <!-- Acceso a las categorías mediante un icono SVG decorativo. -->
+            <a class="catalog-link" href="index.html#categorias" aria-label="Explorar categor&#237;as">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>
+                <span>Explora nuestras categor&#237;as</span>
+                <b>Ver cat&#225;logo</b>
+            </a>
+            <!-- Enlaces rápidos a ayuda y a los productos. -->
+            <div class="header-actions">
+                <a class="help-link" href="#ayuda"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 18h.01M9.1 9a3 3 0 1 1 5.2 2c-1.3 1.1-2.3 1.6-2.3 3"></path><circle cx="12" cy="12" r="9"></circle></svg><span>Ayuda</span></a>
+                <a class="products-link" href="#productos" aria-label="Ver productos">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>
+                    <span>Productos</span>
+                </a>
+            </div>
+        </div>
+        <!-- Menú principal; nav-active y aria-current señalan la categoría actual. -->
+        <nav class="main-nav" aria-label="Navegación principal"><a href="index.html">Todo</a><a href="bicicletas.html">Bicicletas eléctricas</a><a href="scooters.html">Scooters</a><a class="nav-active" href="vehiculos.html" aria-current="page">ATV y vehículos</a><a href="rc.html">Juguetes RC</a><a href="index.html#ayuda">Sobre Arngren</a></nav>
+    </header>
+    <!-- Contenido de la página dedicada a ATV y vehículos. -->
+    <main id="contenido" class="category-page">
+        <!-- Ruta de navegación que muestra el inicio y la página actual. -->
+        <div class="breadcrumbs"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">ATV y vehículos</span></div>
+        <!-- Presentación de la categoría con texto e imagen principal. -->
+        <section class="category-intro category-vehicles" aria-labelledby="category-title">
+            <div><p class="eyebrow">03 / Acelera</p><h1 id="category-title">ATV y vehículos<span>.</span></h1><p>Vehículos eléctricos para grandes y pequeños. Elige tu próxima aventura y prepárate para salir.</p></div>
+            <img src="https://arngren.net/sitebuilder/images/ATV-CE.B1017620521-118x85.jpg" alt="Quad ATV eléctrico" fetchpriority="high">
+        </section>
+        <!-- Productos disponibles en esta categoría; el encabezado indica el número de modelos. -->
+        <section class="products-section category-products" id="productos" aria-labelledby="products-title">
+            <div class="section-heading products-heading"><div><p class="eyebrow">Listos para la aventura</p><h2 id="products-title">Vehículos eléctricos</h2></div><span class="category-product-count">2 modelos</span></div>
+            <div class="product-grid">
+                <!-- Cada ficha repite imagen, distintivo, categoría, nombre, valoración y precio. -->
+                <article class="product-card" data-category="vehiculos" data-name="mini jeep eléctrico infantil">
+                    <div class="product-image"><span class="product-badge">Diversión total</span><img src="https://arngren.net/sitebuilder/images/elbil-68-fordmonster-t-202x146.jpg" alt="Coche eléctrico infantil tipo todoterreno" loading="lazy"></div>
+                    <div class="product-info"><span class="product-category">ATV y vehículos</span><h3>Mini Jeep eléctrico</h3><div class="product-rating"><span aria-label="4,9 de 5 estrellas">★★★★★</span> <small>(31)</small></div><div class="product-price"><strong>499 €</strong></div></div>
+                </article>
+                <article class="product-card" data-category="vehiculos" data-name="quad atv eléctrico 1500w">
+                    <div class="product-image"><span class="product-badge badge-new">Nuevo</span><img src="https://arngren.net/sitebuilder/images/el-atv_1500W_EEC_2016_3_-131x104.jpg" alt="Quad ATV eléctrico" loading="lazy"></div>
+                    <div class="product-info"><span class="product-category">ATV y vehículos</span><h3>Quad eléctrico 1500W</h3><div class="product-rating"><span aria-label="4,8 de 5 estrellas">★★★★★</span> <small>(9)</small></div><div class="product-price"><strong>1.899 €</strong></div></div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <!-- Pie común con enlaces informativos y datos de la marca. -->
+    <footer class="site-footer" id="ayuda"><a class="brand footer-brand" href="index.html" aria-label="Arngren, inicio"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-name">arngren<span>.</span></span></a><p>Muévete diferente. Desde 1985.</p><div class="footer-links"><a href="index.html#ayuda">Atención al cliente</a><a href="index.html#ayuda">Envíos y devoluciones</a><a href="index.html#ayuda">Privacidad</a><a href="../../index.html">Portfolio de Manuel</a></div><span class="copyright">© 2025 Arngren</span></footer>
+</body>
+</html>

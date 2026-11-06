@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- [CRITERIO MÍNIMO]: Viewport para diseño responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre a Shadow the Hedgehog: su origen, sus habilidades y los juegos en los que aparece.">
+    <meta name="theme-color" content="#08090d">
+    <title>Shadow the Hedgehog | La forma de vida definitiva</title>
+
+    <!-- [CRITERIO RECOMENDABLE]: Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#inicio" class="logo">
+                SHADOW<span class="accent">.</span>
+            </a>
+
+            <!-- Casilla que permite abrir el menú con CSS, sin JavaScript. -->
+            <input class="menu-checkbox" type="checkbox" id="menu-toggle" aria-controls="main-nav">
+
+            <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#habilidades">Poderes</a></li>
+                    <li><a href="#ficha">Ficha</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#historia" class="btn btn-primary btn-desktop-only">Conocer a Shadow</a>
+                <label class="menu-toggle" for="menu-toggle">
+                    <span></span><span></span><span></span>
+                    <span class="sr-only">Mostrar u ocultar el menú de navegación</span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+
+        <!-- Presentación -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <span class="badge">LA FORMA DE VIDA DEFINITIVA</span>
+                <h1>Shadow the <span class="accent">Hedgehog</span></h1>
+                <p class="hero-lead">
+                    Enigmático, veloz e independiente. Creado por el profesor Gerald Robotnik, Shadow sigue su propio camino y domina el poder de las Chaos Emeralds.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#habilidades" class="btn btn-primary">Descubrir sus poderes</a>
+                    <a href="#historia" class="btn btn-secondary">Su historia</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <picture class="hero-picture">
+                    <source media="(min-width: 600px)" srcset="https://sonic.sega.jp/SonicChannel/upload_images/character-shadow.jpg">
+                    <img src="https://sonic.sega.jp/SonicChannel/upload_images/character-shadow.jpg" alt="Shadow the Hedgehog, el erizo negro de franjas rojas" class="responsive-img artwork-main">
+                </picture>
+            </div>
+        </section>
+
+        <!-- Habilidades y juegos destacados -->
+        <section class="bento-section" id="habilidades">
+            <div class="section-header">
+                <h2>Poderes y apariciones</h2>
+                <p>Las habilidades que lo definen, junto a algunos de los juegos clave de su historia.</p>
+            </div>
+
+            <div class="bento-grid">
+                <article class="art-card card-span-2">
+                    <img src="https://sonic.sega.jp/SonicChannel/upload_images/gametitle_SonicAdventure2_logo.jpg" alt="Logotipo de Sonic Adventure 2, primera aparición de Shadow" class="art-img">
+                    <div class="art-info">
+                        <span class="card-tag">CONTROL DEL CAOS</span>
+                        <h3>Chaos Control</h3>
+                        <p>Usa el poder de una Chaos Emerald para distorsionar el espacio y el tiempo.</p>
+                    </div>
+                </article>
+
+                <article class="art-card">
+                    <img src="https://sonic.sega.jp/SonicChannel/upload_images/gametitle_ShadowTheHedgehog_logo.jpg" alt="Logotipo del videojuego Shadow the Hedgehog" class="art-img">
+                    <div class="art-info">
+                        <span class="card-tag">CHAOS BLAST</span>
+                        <h3>Energía explosiva</h3>
+                        <p>Libera una poderosa onda de energía del caos para atacar a su alrededor.</p>
+                    </div>
+                </article>
+
+                <article class="art-card">
+                    <img src="https://sonic.sega.jp/SonicChannel/upload_images/gametitle_SonicHeroes_logo.jpg" alt="Logotipo del videojuego Sonic Heroes" class="art-img">
+                    <div class="art-info">
+                        <span class="card-tag">VELOCIDAD</span>
+                        <h3>Rival de Sonic</h3>
+                        <p>Su velocidad y destreza están a la altura de las del erizo azul.</p>
+                    </div>
+                </article>
+
+                <article class="art-card card-span-2">
+                    <img src="https://sonic.sega.jp/SonicChannel/upload_images/gametitle_SonicForces_logo.jpg" alt="Logotipo del videojuego Sonic Forces" class="art-img">
+                    <div class="art-info">
+                        <span class="card-tag">CHAOS SPEAR</span>
+                        <h3>Precisión a distancia</h3>
+                        <p>Concentra energía del caos y la lanza en forma de proyectiles.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Historia del personaje y datos principales -->
+        <div class="content-split" id="historia">
+            <section class="main-panel card">
+                <span class="card-tag">SU ORIGEN</span>
+                <h2>Un pasado que no puede olvidar</h2>
+                <p>Shadow fue creado como la forma de vida definitiva por el profesor Gerald Robotnik. Su vínculo con Maria y la promesa que le hizo marcaron su destino. Aunque a menudo actúa por su cuenta, decide proteger el futuro de la humanidad a su manera.</p>
+
+                <div class="tools-grid">
+                    <div class="tool-box">
+                        <span class="tool-value">100 cm</span>
+                        <span class="tool-label">Estatura</span>
+                    </div>
+                    <div class="tool-box">
+                        <span class="tool-value">35 kg</span>
+                        <span class="tool-label">Peso</span>
+                    </div>
+                    <div class="tool-box">
+                        <span class="tool-value">Chaos</span>
+                        <span class="tool-label">Poder principal</span>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="side-panel card" id="ficha">
+                <span class="card-tag">FICHA DEL PERSONAJE</span>
+                <h3>Shadow, en pocas palabras</h3>
+                <ul class="status-list">
+                    <li>
+                        <span>Especie</span>
+                        <span class="status-pill status-warn">Erizo</span>
+                    </li>
+                    <li>
+                        <span>Creado por</span>
+                        <span class="status-pill status-ok">Prof. Gerald</span>
+                    </li>
+                    <li>
+                        <span>Equipo</span>
+                        <span class="status-pill status-ok">Team Dark</span>
+                    </li>
+                </ul>
+                <a href="https://sonic.sega.jp/SonicChannel/character/shadow.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="width: 100%; margin-top: 1.5rem;">Fuente oficial</a>
+            </aside>
+        </div>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <strong>SHADOW<span class="accent">.</span></strong>
+                <p>Shadow the Hedgehog pertenece a SEGA. Sitio informativo no oficial.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="../../index.html">Portfolio de Manuel</a></li>
+                <li><a href="https://sonic.sega.jp/SonicChannel/" target="_blank" rel="noopener noreferrer">Sonic Channel</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

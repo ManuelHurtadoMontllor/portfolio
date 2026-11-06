@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análisis de la web original de Arngren y explicación de las decisiones aplicadas en su rediseño.">
+    <title>Análisis del rediseño — Arngren</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17231f;
+            --muted: #66716a;
+            --paper: #f7f7f2;
+            --white: #fff;
+            --line: #e1e6dc;
+            --green: #c8f169;
+            --font-body: "DM Sans", Arial, sans-serif;
+            --font-display: "Space Grotesk", "DM Sans", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 32px 28px 56px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font-body);
+            line-height: 1.7;
+        }
+
+        a {
+            color: #47671b;
+            text-underline-offset: 3px;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #6b9d22;
+            outline-offset: 3px;
+        }
+
+        header,
+        main,
+        footer {
+            background: var(--white);
+        }
+
+        header {
+            padding: clamp(28px, 6vw, 64px);
+            border-radius: 8px 8px 0 0;
+            background: #e9efdf;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: #61714f;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-display);
+            line-height: 1.2;
+        }
+
+        h1 {
+            max-width: 760px;
+            margin: 0;
+            font-size: clamp(36px, 7vw, 64px);
+            letter-spacing: -.06em;
+        }
+
+        header > p:last-child {
+            max-width: 700px;
+            margin-bottom: 0;
+            color: #4e5b51;
+        }
+
+        main {
+            padding: clamp(24px, 5vw, 52px);
+        }
+
+        section + section {
+            margin-top: 42px;
+        }
+
+        h2 {
+            margin: 0 0 16px;
+            font-size: clamp(25px, 4vw, 34px);
+            letter-spacing: -.04em;
+        }
+
+        .business {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .business div {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            overflow-wrap: anywhere;
+        }
+
+        .business strong,
+        .business span {
+            display: block;
+        }
+
+        .business strong {
+            margin-bottom: 5px;
+        }
+
+        .business span {
+            color: var(--muted);
+        }
+
+        .problem-list {
+            display: grid;
+            gap: 18px;
+            padding: 0;
+            list-style: none;
+            counter-reset: problem;
+        }
+
+        .problem-list li {
+            position: relative;
+            padding: 22px 22px 22px 68px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            counter-increment: problem;
+        }
+
+        .problem-list li::before {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: grid;
+            width: 32px;
+            height: 32px;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--green);
+            content: counter(problem, decimal-leading-zero);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .problem-list h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .problem-list p {
+            margin: 0;
+            color: #4e5b51;
+        }
+
+        .problem-list p + p {
+            margin-top: 10px;
+        }
+
+        .implementation {
+            padding: 20px 22px;
+            border-left: 4px solid var(--green);
+            background: #f5f7f1;
+        }
+
+        .implementation p {
+            margin: 0;
+        }
+
+        .implementation p + p {
+            margin-top: 10px;
+        }
+
+        code {
+            padding: 2px 5px;
+            border-radius: 3px;
+            background: #edf1e7;
+            font-size: .92em;
+        }
+
+        footer {
+            padding: 20px clamp(24px, 5vw, 52px);
+            border-top: 1px solid var(--line);
+            border-radius: 0 0 8px 8px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 14px 12px 28px;
+            }
+
+            .business {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-list li {
+                padding: 62px 17px 18px;
+            }
+
+            .problem-list li::before {
+                top: 16px;
+                left: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p class="eyebrow">Trabajo de rediseño web</p>
+        <h1>Análisis de la web de Arngren</h1>
+        <p>En este documento analizamos varios problemas de la web original y explicamos las decisiones que hemos tomado para resolverlos en nuestra propuesta. El objetivo no es cambiar el tipo de negocio, sino hacer que su catálogo sea más claro, fácil de recorrer y cómodo de consultar desde distintos dispositivos.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="business-title">
+            <h2 id="business-title">Negocio analizado</h2>
+            <div class="business">
+                <div>
+                    <strong>Nombre</strong>
+                    <span>Arngren</span>
+                </div>
+                <div>
+                    <strong>URL de la web original</strong>
+                    <span><a href="https://arngren.net/">https://arngren.net/</a></span>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="problems-title">
+            <h2 id="problems-title">Problemas detectados y soluciones aplicadas</h2>
+            <ol class="problem-list">
+                <li>
+                    <h3>Demasiados elementos compiten por la atención</h3>
+                    <p>En la web original se muestran muchos productos, imágenes y enlaces con una jerarquía visual poco clara. Cuando todos los elementos tienen un peso parecido, cuesta saber por dónde empezar y localizar rápidamente lo más importante. Esto puede hacer que una persona abandone la página antes de encontrar un producto que le interese.</p>
+                    <p>En el rediseño separamos el contenido en zonas con funciones reconocibles: cabecera, presentación principal, ventajas, categorías y productos destacados. El panel <code>.hero</code> introduce la propuesta de la tienda con un título, un texto breve y un botón, y después la cuadrícula <code>.category-grid</code> permite escoger un tipo de producto. Así la persona avanza desde una visión general hasta el catálogo sin enfrentarse a todo a la vez.</p>
+                </li>
+                <li>
+                    <h3>La organización del catálogo no guía suficientemente la búsqueda</h3>
+                    <p>Cuando se mezclan tipos de productos distintos en un mismo listado, hay que revisar muchas fichas para encontrar lo que se busca. Además de aumentar el esfuerzo, se hace más difícil comparar artículos de una misma clase.</p>
+                    <p>La propuesta da una entrada propia a bicicletas, scooters, ATV y vehículos, y juguetes RC. Las tarjetas de categoría enlazan a <code>bicicletas.html</code>, <code>scooters.html</code>, <code>vehiculos.html</code> y <code>rc.html</code>. Cada una de esas páginas tiene una presentación de categoría y su propio listado. En las fichas, los atributos <code>data-category</code> y <code>data-name</code> identifican el tipo y el nombre del artículo, lo que también deja los datos clasificados en el HTML.</p>
+                </li>
+                <li>
+                    <h3>La navegación entre secciones y páginas puede resultar confusa</h3>
+                    <p>Si no se distingue bien la navegación global de los enlaces de cada producto, una persona puede perder el contexto o no saber qué categoría está consultando. También es útil tener una referencia para volver al inicio cuando se navega por una página interior.</p>
+                    <p>El rediseño mantiene una navegación principal común en todas las páginas y marca la sección actual con <code>.nav-active</code> y <code>aria-current="page"</code>. Las páginas de categoría incluyen una ruta de migas de pan con un enlace a «Inicio» y el nombre de la categoría actual. Los botones y enlaces del panel principal llevan a destinos concretos de la misma página, como <code>#productos</code> o <code>#categorias</code>.</p>
+                </li>
+                <li>
+                    <h3>La información de cada artículo necesita una estructura constante</h3>
+                    <p>En una tienda, el usuario compara nombres, imágenes, categorías, valoraciones y precios. Si esos datos no aparecen de manera consistente, resulta más difícil revisar las opciones y detectar diferencias importantes, como una oferta.</p>
+                    <p>Hemos utilizado una estructura repetida para las fichas <code>.product-card</code>: una zona <code>.product-image</code> con su distintivo, seguida de <code>.product-info</code> con categoría, título, valoración y precio. Los distintivos <code>.badge-new</code> y <code>.badge-sale</code> identifican visualmente novedades y descuentos, mientras que el elemento <code>&lt;del&gt;</code> diferencia el precio anterior del precio actual cuando hay una rebaja. Esta consistencia permite recorrer y comparar el catálogo con menos esfuerzo.</p>
+                </li>
+                <li>
+                    <h3>La página debe adaptarse a móviles y tabletas</h3>
+                    <p>Una composición pensada solo para pantallas anchas puede provocar columnas estrechas, texto difícil de leer o desplazamiento horizontal en un teléfono. Como muchos usuarios consultan tiendas desde el móvil, el contenido debe reorganizarse, no limitarse a encogerse.</p>
+                    <p>La hoja <code>estilos/styles.css</code> utiliza reglas <code>@media</code> para cambiar la distribución según el ancho. En el punto de ruptura de 950 píxeles se reducen columnas y espacios; por debajo de 680 píxeles el panel principal pasa a una columna, las categorías y productos se organizan en cuadrículas de dos columnas y se ajustan márgenes y tamaños de texto. También se permite el desplazamiento horizontal de la navegación para conservar sus enlaces en pantallas pequeñas.</p>
+                </li>
+                <li>
+                    <h3>La legibilidad y la jerarquía tipográfica se pueden mejorar</h3>
+                    <p>Una página con muchos elementos visuales necesita diferenciar claramente títulos, explicaciones y datos secundarios. Si todo se presenta con tamaños o estilos similares, cuesta localizar la información y leerla rápidamente.</p>
+                    <p>El rediseño establece una escala tipográfica: títulos principales y encabezados de sección más destacados, texto descriptivo de tamaño legible y etiquetas secundarias más discretas. Se definen familias distintas mediante las variables <code>--font-body</code> y <code>--font-display</code>, y se reutilizan colores de texto y fondo con variables CSS. El espacio entre secciones, tarjetas y bloques también ayuda a separar visualmente cada tema.</p>
+                </li>
+                <li>
+                    <h3>Hay que tener en cuenta la navegación con teclado y lectores de pantalla</h3>
+                    <p>Una interfaz no es accesible si solo se puede recorrer con el ratón o si los elementos decorativos interfieren con la lectura del contenido. Los enlaces importantes deben poder localizarse y las imágenes informativas necesitan una descripción alternativa.</p>
+                    <p>En las páginas del rediseño se incluye un enlace <code>.skip-link</code> para saltar al contenido principal, y los enlaces muestran un contorno con <code>:focus-visible</code> al recibir el foco del teclado. Se emplean etiquetas semánticas como <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code> y <code>&lt;article&gt;</code>; además, los iconos decorativos se marcan con <code>aria-hidden="true"</code> y las imágenes de productos tienen textos <code>alt</code> descriptivos. En valoraciones, <code>aria-label</code> comunica la puntuación a tecnologías de asistencia.</p>
+                </li>
+                <li>
+                    <h3>Las imágenes y los efectos visuales deben usarse con intención</h3>
+                    <p>Si todas las imágenes se cargan a la vez o se presentan sin una función clara, pueden ralentizar la página y distraer de la información del producto. También es importante evitar movimientos innecesarios para quienes prefieren una experiencia más tranquila.</p>
+                    <p>Las imágenes de las fichas usan <code>loading="lazy"</code> para aplazar la carga hasta que estén cerca de la zona visible; la imagen principal de una categoría usa <code>fetchpriority="high"</code> porque aparece al inicio. Los efectos de movimiento se limitan a interacciones concretas, como elevar una tarjeta al pasar el puntero. La regla <code>@media (prefers-reduced-motion: reduce)</code> reduce transiciones y desplazamientos cuando el sistema indica esa preferencia.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="summary-title">
+            <h2 id="summary-title">Conclusión</h2>
+            <div class="implementation">
+                <p>El rediseño transforma el catálogo en un recorrido más ordenado: primero presenta la tienda, después ofrece categorías claras y finalmente muestra los artículos con una estructura común. La navegación compartida conecta las páginas, mientras que la adaptación responsive y los recursos de accesibilidad permiten consultar el contenido desde más dispositivos y con distintas formas de interacción.</p>
+                <p>Las mejoras se han realizado principalmente con HTML semántico y CSS, reutilizando clases y variables para mantener un estilo coherente. <code>analisis.html</code> es un documento independiente del sitio de la tienda y no forma parte de su menú de navegación.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Análisis del proyecto de rediseño web de Arngren.</p>
+        <p><a href="../../index.html">Volver al portfolio de Manuel</a></p>
+    </footer>
+</body>
+</html>

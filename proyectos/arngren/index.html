@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Codificación, adaptación a móviles, color del navegador y descripción para buscadores. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f7f2">
+    <meta name="description" content="Descubre bicicletas eléctricas, scooters y vehículos RC en Arngren. Tecnología para moverte a tu manera.">
+    <title>Arngren — Muévete diferente</title>
+    <!-- Prepara la conexión con el servidor de imágenes y carga los estilos generales. -->
+    <link rel="preconnect" href="https://arngren.net">
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+    <!-- Enlace de accesibilidad que permite saltar directamente al contenido principal. -->
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Franja superior con una promoción y un acceso rápido al catálogo. -->
+    <div class="announcement">
+        <p>Envío gratis en pedidos superiores a 99 € <span aria-hidden="true">·</span> <a href="#productos">Descubre la colección</a></p>
+    </div>
+
+    <!-- Cabecera: marca, accesos principales y navegación por secciones/categorías. -->
+    <header class="site-header">
+        <div class="header-main">
+            <!-- Enlace a inicio; el símbolo decorativo se oculta a lectores de pantalla. -->
+            <a class="brand" href="index.html" aria-label="Arngren, inicio">
+                <span class="brand-mark" aria-hidden="true">A</span>
+                <span class="brand-name">arngren<span>.</span></span>
+            </a>
+
+            <!-- Acceso al catálogo con un icono SVG decorativo. -->
+            <a class="catalog-link" href="#categorias" aria-label="Explorar categorías">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>
+                <span>Explora nuestras categorías</span>
+                <b>Ver catálogo</b>
+            </a>
+
+            <!-- Enlaces auxiliares; los SVG aportan iconos y aria-hidden evita leerlos. -->
+            <div class="header-actions">
+                <a class="help-link" href="#ayuda">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 18h.01M9.1 9a3 3 0 1 1 5.2 2c-1.3 1.1-2.3 1.6-2.3 3"></path><circle cx="12" cy="12" r="9"></circle></svg>
+                    <span>Ayuda</span>
+                </a>
+                <a class="products-link" href="#productos" aria-label="Ver productos">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>
+                    <span>Productos</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navegación principal; aria-current identifica la página actual. -->
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a class="nav-active" href="index.html#productos" aria-current="page">Todo</a>
+            <a href="bicicletas.html">Bicicletas eléctricas</a>
+            <a href="scooters.html">Scooters</a>
+            <a href="vehiculos.html">ATV y vehículos</a>
+            <a href="rc.html">Juguetes RC</a>
+            <a href="#ayuda">Sobre Arngren</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal de la página, organizado en secciones semánticas. -->
+    <main id="contenido">
+        <!-- Presentación destacada: mensaje, llamada a la acción e imagen del producto. -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <!-- Eyebrow es un texto breve que introduce el título de la sección. -->
+                <p class="eyebrow"><span></span> Tecnología para salir ahí fuera</p>
+                <h1 id="hero-title">Muévete<br> diferente<span>.</span></h1>
+                <p class="hero-description">Nuevas formas de explorar, jugar y llegar más lejos. Encuentra tu próximo vehículo favorito.</p>
+                <!-- Botón estilizado que lleva al listado de productos. -->
+                <a class="button button-dark" href="#productos">Explorar productos <span aria-hidden="true">↗</span></a>
+                <!-- Prueba social con avatares decorativos y una cifra de clientes. -->
+                <div class="hero-note">
+                    <div class="avatar-stack" aria-hidden="true"><span>J</span><span>M</span><span>A</span></div>
+                    <p><strong>Más de 2.000</strong><br>aventureros ya están en marcha</p>
+                </div>
+            </div>
+            <!-- Ilustración del producto destacado, adornos y tarjeta de información superpuesta. -->
+            <div class="hero-visual">
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+                <span class="hero-tag">Hecha para explorar <span aria-hidden="true">↗</span></span>
+                <img src="https://arngren.net/sitebuilder/images/elsykkel-SAMMENLEGGBAR-9T_7TK29F-247x186.jpg" alt="Bicicleta eléctrica plegable para recorrer la ciudad">
+                <div class="hero-product-card">
+                    <span class="product-label">Favorita de la comunidad</span>
+                    <strong>Fatbike eléctrica</strong>
+                    <span>Potencia para ir más allá</span>
+                </div>
+                <span class="hero-spark" aria-hidden="true">✳</span>
+            </div>
+            <div class="hero-side-note" aria-hidden="true">DISEÑADO PARA LA AVENTURA · DESDE 1985</div>
+        </section>
+
+        <!-- Resumen de ventajas; cada bloque repite icono, título y explicación breve. -->
+        <section class="benefits" aria-label="Ventajas de comprar en Arngren">
+            <div class="benefit">
+                <!-- Iconos decorativos ocultos a lectores de pantalla; el texto explica cada ventaja. -->
+                <span class="benefit-icon" aria-hidden="true">↗</span>
+                <div><strong>Envío rápido</strong><span>En 24–72 horas</span></div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon" aria-hidden="true">◇</span>
+                <div><strong>Compra segura</strong><span>Pago protegido</span></div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon" aria-hidden="true">⌁</span>
+                <div><strong>Personas reales</strong><span>Te ayudamos de verdad</span></div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon" aria-hidden="true">↺</span>
+                <div><strong>30 días</strong><span>Para cambiar de idea</span></div>
+            </div>
+        </section>
+
+        <!-- Accesos visuales a las cuatro categorías principales del catálogo. -->
+        <section class="categories-section" id="categorias" aria-labelledby="categories-title">
+            <!-- Encabezado compartido por secciones: textos a la izquierda y enlace de apoyo. -->
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Encuentra tu camino</p>
+                    <h2 id="categories-title">¿Qué te mueve?</h2>
+                </div>
+                <a class="text-link" href="#productos">Ver todos los productos <span aria-hidden="true">↗</span></a>
+            </div>
+            <!-- Cada tarjeta enlaza con una categoría e incluye nombre, llamada a la acción e imagen. -->
+            <div class="category-grid">
+                <!-- category-index numera la tarjeta; category-name muestra el título y category-link su acción. -->
+                <a class="category-card category-bike" href="bicicletas.html">
+                    <span class="category-index">01 / Explora</span>
+                    <span class="category-name">Bicicletas<br>eléctricas</span>
+                    <span class="category-link">Ver bicicletas <b aria-hidden="true">↗</b></span>
+                    <img src="https://arngren.net/sitebuilder/images/elsykkel-FATBIKE-LITE-BILDE-23061_Fatbike_Sammenleggbar_750w_48v_1-124x88.jpg" alt="" loading="lazy">
+                </a>
+                <a class="category-card category-scooter" href="scooters.html">
+                    <span class="category-index">02 / Deslízate</span>
+                    <span class="category-name">Scooters<br>eléctricos</span>
+                    <span class="category-link">Ver scooters <b aria-hidden="true">↗</b></span>
+                    <img src="https://arngren.net/sitebuilder/images/elscooter-3hjul-1-222x185.jpg" alt="" loading="lazy">
+                </a>
+                <a class="category-card category-vehicles" href="vehiculos.html">
+                    <span class="category-index">03 / Acelera</span>
+                    <span class="category-name">ATV y<br>vehículos</span>
+                    <span class="category-link">Ver vehículos <b aria-hidden="true">↗</b></span>
+                    <img src="https://arngren.net/sitebuilder/images/ATV-CE.B1017620521-118x85.jpg" alt="" loading="lazy">
+                </a>
+                <a class="category-card category-rc" href="rc.html">
+                    <span class="category-index">04 / Juega</span>
+                    <span class="category-name">Juguetes<br>RC</span>
+                    <span class="category-link">Ver juguetes RC <b aria-hidden="true">↗</b></span>
+                    <img src="https://arngren.net/sitebuilder/images/r2d2-85x85.jpg" alt="" loading="lazy">
+                </a>
+            </div>
+        </section>
+
+        <!-- Catálogo destacado: cada artículo repite una ficha con imagen, datos, valoración y precio. -->
+        <section class="products-section" id="productos" aria-labelledby="products-title">
+            <div class="section-heading products-heading">
+                <div>
+                    <p class="eyebrow">Selección Arngren</p>
+                    <h2 id="products-title">Productos destacados</h2>
+                </div>
+                <a class="text-link" href="#categorias">Explorar por categoría <span aria-hidden="true">↗</span></a>
+            </div>
+            <!-- Las tarjetas usan data-category y data-name para describir y clasificar cada producto. -->
+            <div class="product-grid">
+                <article class="product-card" data-category="bicicletas" data-name="fatbike eléctrica 750w">
+                    <div class="product-image">
+                        <!-- Distintivo comercial del producto; las variantes badge-new y badge-sale cambian su estilo. -->
+                        <span class="product-badge">Más vendido</span>
+
+                        <!-- Imagen con texto alternativo; loading="lazy" aplaza la carga hasta acercarse a pantalla. -->
+                        <img src="https://arngren.net/sitebuilder/images/elsykkel-FATBIKE-LITE-BILDE-23061_Fatbike_Sammenleggbar_750w_48v_1-124x88.jpg" alt="Bicicleta eléctrica Fatbike" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <!-- Categoría y título identifican el producto; aria-label ofrece la valoración accesible. -->
+                        <span class="product-category">Bicicletas eléctricas</span>
+                        <h3>Fatbike eléctrica 750W</h3>
+                        <!-- Estrellas y número de opiniones; el precio anterior, si existe, se marca con del. -->
+                        <div class="product-rating"><span aria-label="5 de 5 estrellas">★★★★★</span> <small>(24)</small></div>
+                        <div class="product-price"><strong>1.299 €</strong></div>
+                    </div>
+                </article>
+                <!-- Las siguientes fichas mantienen la misma estructura y solo cambian sus datos e imágenes. -->
+                <article class="product-card" data-category="bicicletas" data-name="bicicleta eléctrica plegable">
+                    <div class="product-image">
+                        <span class="product-badge badge-new">Lista para la ciudad</span>
+
+                        <img src="https://arngren.net/sitebuilder/images/elsykkel-SAMMENLEGGBAR-9T_7TK29F-247x186.jpg" alt="Bicicleta eléctrica plegable" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Bicicletas eléctricas</span>
+                        <h3>Bicicleta eléctrica plegable</h3>
+                        <div class="product-rating"><span aria-label="4,8 de 5 estrellas">★★★★★</span> <small>(18)</small></div>
+                        <div class="product-price"><strong>1.499 €</strong></div>
+                    </div>
+                </article>
+                <article class="product-card" data-category="scooters" data-name="scooter eléctrico de tres ruedas">
+                    <div class="product-image">
+                        <span class="product-badge badge-sale">-15%</span>
+
+                        <img src="https://arngren.net/sitebuilder/images/elscooter-3hjul-1-222x185.jpg" alt="Scooter eléctrico de tres ruedas" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Scooters</span>
+                        <h3>Scooter eléctrico 3 ruedas</h3>
+                        <div class="product-rating"><span aria-label="4,7 de 5 estrellas">★★★★★</span> <small>(12)</small></div>
+                        <div class="product-price"><strong>1.099 € <del>1.299 €</del></strong></div>
+                    </div>
+                </article>
+                <article class="product-card" data-category="vehiculos" data-name="mini jeep eléctrico infantil">
+                    <div class="product-image">
+                        <span class="product-badge">Diversión total</span>
+
+                        <img src="https://arngren.net/sitebuilder/images/elbil-68-fordmonster-t-202x146.jpg" alt="Coche eléctrico infantil tipo todoterreno" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">ATV y vehículos</span>
+                        <h3>Mini Jeep eléctrico</h3>
+                        <div class="product-rating"><span aria-label="4,9 de 5 estrellas">★★★★★</span> <small>(31)</small></div>
+                        <div class="product-price"><strong>499 €</strong></div>
+                    </div>
+                </article>
+                <article class="product-card" data-category="vehiculos" data-name="quad atv eléctrico">
+                    <div class="product-image">
+                        <span class="product-badge badge-new">Nuevo</span>
+
+                        <img src="https://arngren.net/sitebuilder/images/el-atv_1500W_EEC_2016_3_-131x104.jpg" alt="Quad ATV eléctrico" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">ATV y vehículos</span>
+                        <h3>Quad eléctrico 1500W</h3>
+                        <div class="product-rating"><span aria-label="4,8 de 5 estrellas">★★★★★</span> <small>(9)</small></div>
+                        <div class="product-price"><strong>1.899 €</strong></div>
+                    </div>
+                </article>
+                <article class="product-card" data-category="bicicletas" data-name="bicicleta eléctrica cargo">
+                    <div class="product-image">
+                        <span class="product-badge">Para compartir</span>
+
+                        <img src="https://arngren.net/sitebuilder/images/elsykkel-cargo-43166_Taxi_Sykkel___Persontransport_5-100x86.jpg" alt="Bicicleta eléctrica de carga" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Bicicletas eléctricas</span>
+                        <h3>Bicicleta eléctrica cargo</h3>
+                        <div class="product-rating"><span aria-label="4,6 de 5 estrellas">★★★★★</span> <small>(7)</small></div>
+                        <div class="product-price"><strong>2.199 €</strong></div>
+                    </div>
+                </article>
+                <article class="product-card" data-category="rc" data-name="robot teledirigido r2-d2">
+                    <div class="product-image">
+                        <span class="product-badge badge-new">Para fans</span>
+
+                        <img src="https://arngren.net/sitebuilder/images/r2d2-85x85.jpg" alt="Robot teledirigido R2-D2" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Juguetes RC</span>
+                        <h3>Robot teledirigido R2-D2</h3>
+                        <div class="product-rating"><span aria-label="4,8 de 5 estrellas">★★★★★</span> <small>(16)</small></div>
+                        <div class="product-price"><strong>89 €</strong></div>
+                    </div>
+                </article>
+            </div>
+            <!-- CTA al catálogo de categorías, situado al final de los productos destacados. -->
+            <div class="catalog-cta"><a class="button button-outline" href="#categorias">Ver todas las categorías <span aria-hidden="true">↗</span></a></div>
+        </section>
+
+        <!-- Bloque final de inspiración y llamada para volver a explorar las categorías. -->
+        <section class="newsletter" id="ayuda">
+            <div>
+                <p class="eyebrow">El siguiente paso empieza aquí</p>
+                <h2>Buenas ideas.<br>Mejores aventuras.</h2>
+                <p>Inspírate con novedades, lanzamientos y ofertas de Arngren.</p>
+            </div>
+            <div class="newsletter-cta">
+                <p>Una selección de bicicletas, scooters y vehículos para disfrutar a tu manera.</p>
+                <a class="button button-dark" href="#categorias">Explorar categorías <span aria-hidden="true">↗</span></a>
+            </div>
+            <span class="newsletter-mark" aria-hidden="true">A</span>
+        </section>
+    </main>
+
+    <!-- Pie de página con la marca, enlaces informativos y aviso de copyright. -->
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="index.html" aria-label="Arngren, inicio">
+            <span class="brand-mark" aria-hidden="true">A</span>
+            <span class="brand-name">arngren<span>.</span></span>
+        </a>
+        <p>Muévete diferente. Desde 1985.</p>
+        <div class="footer-links"><a href="#ayuda">Atención al cliente</a><a href="#ayuda">Envíos y devoluciones</a><a href="#ayuda">Privacidad</a><a href="analisis.html">Análisis del rediseño</a><a href="../../index.html">Portfolio de Manuel</a></div>
+        <span class="copyright">© 2025 Arngren</span>
+    </footer>
+
+</body>
+</html>

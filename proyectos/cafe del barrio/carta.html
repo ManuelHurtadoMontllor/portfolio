@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Café del Barrio | Carta</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page page-menu">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Café del Barrio, inicio">
+        <img class="brand__logo" src="img/logo.jpg" alt="Logo del Café del Barrio" />
+        <span class="brand__name">Café del Barrio</span>
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <ul class="site-nav__list">
+          <li>
+            <a class="site-nav__link" href="index.html">Inicio</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="carta.html" aria-current="page">Carta</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="galeria.html">Galería</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="nosotros.html">Nosotros</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <header class="page-heading">
+        <p class="eyebrow">Sabores del barrio</p>
+        <h1 class="page-title">Nuestra carta</h1>
+        <p class="page-intro">Pequeños placeres preparados con mimo, para acompañar cada momento.</p>
+      </header>
+      <nav class="menu-nav" aria-label="Secciones de la carta">
+        <a class="menu-nav__link" href="#cafes">Cafés</a>
+        <a class="menu-nav__link" href="#dulces">Dulces</a>
+        <a class="menu-nav__link" href="#postres">Postres</a>
+      </nav>
+      <section class="suggestions">
+        <h2 class="section-title">¿No sabes qué pedir?</h2>
+        <p class="section-intro">Estas son algunas de nuestras sugerencias:</p>
+        <ol class="suggestion-list">
+          <li><strong>Espresso</strong><span>Agua y café recién molido</span></li>
+          <li><strong>Croissant</strong><span>Hojaldre y mantequilla <em>(lácteo)</em></span></li>
+          <li><strong>Tarta de queso</strong><span>Queso <em>(lácteo)</em> y galleta <em>(gluten)</em></span></li>
+        </ol>
+      </section>
+      <div class="menu-tables">
+        <table class="menu-table" id="cafes">
+          <caption>Cafés</caption>
+          <thead><tr><th scope="col">Nombre</th><th scope="col">Descripción</th><th scope="col">Precio</th></tr></thead>
+          <tbody>
+            <tr><td>Espresso</td><td>Café fuerte y concentrado</td><td>2,50 €</td></tr>
+            <tr><td>Latte</td><td>Café con leche vaporizada</td><td>3,50 €</td></tr>
+          </tbody>
+        </table>
+        <table class="menu-table" id="dulces">
+          <caption>Dulces</caption>
+          <thead><tr><th scope="col">Nombre</th><th scope="col">Descripción</th><th scope="col">Precio</th></tr></thead>
+          <tbody>
+            <tr><td>Brownie</td><td>Pastel de chocolate con nueces</td><td>2,00 €</td></tr>
+            <tr><td>Croissant</td><td>Hojaldre relleno de mantequilla</td><td>1,50 €</td></tr>
+          </tbody>
+        </table>
+        <table class="menu-table" id="postres">
+          <caption>Postres</caption>
+          <thead><tr><th scope="col">Nombre</th><th scope="col">Descripción</th><th scope="col">Precio</th></tr></thead>
+          <tbody>
+            <tr><td>Tarta de queso</td><td>Tarta cremosa de queso con base de galleta</td><td>3,00 €</td></tr>
+            <tr><td>Helado</td><td>Variedad de sabores de helado artesanal</td><td>2,50 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p>&copy; 2025 Café del Barrio. Todos los derechos reservados.</p>
+      <p><a href="../../index.html">Portfolio de Manuel</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,528 @@
+/* ==========================================================================
+   1. VARIABLES Y TEMA OSCURO
+   ========================================================================== */
+:root {
+    --bg-main: #08090d;
+    --bg-surface: #11131a;
+    --bg-surface-elevated: #1b1e27;
+    --border-color: #30343e;
+
+    --accent-primary: #e52336;
+    --accent-hover: #ff3c4d;
+    --accent-glow: rgba(229, 35, 54, 0.25);
+    --accent-gold: #f4c542;
+    --status-ok-text: #34d399;
+    --status-warn-text: #f4c542;
+
+    --text-primary: #f5f5f5;
+    --text-muted: #a4a7b0;
+
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --radius: 12px;
+    --container-max: 75rem;
+}
+
+/* ==========================================================================
+   2. TEMA CLARO SEGÚN LAS PREFERENCIAS DEL SISTEMA
+   ========================================================================== */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-main: #f3f2ef;
+        --bg-surface: #ffffff;
+        --bg-surface-elevated: #e9e7e2;
+        --border-color: #d5d2ca;
+
+        --accent-primary: #bf1728;
+        --accent-hover: #991b1b;
+        --accent-glow: rgba(191, 23, 40, 0.18);
+        --status-ok-text: #0a6b45;
+        --status-warn-text: #805e00;
+
+        --text-primary: #17181c;
+        --text-muted: #555860;
+    }
+}
+
+/* ==========================================================================
+   3. RESET Y TIPOGRAFÍA FLUIDA
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+ul { list-style: none; }
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.accent { color: var(--accent-primary); font-weight: 700; }
+
+/* Mantiene visible el foco al navegar con teclado. */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent-gold);
+    outline-offset: 3px;
+}
+
+/* Oculta la casilla visualmente, pero la mantiene accesible y seleccionable. */
+.menu-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.menu-checkbox:focus-visible + .main-nav + .header-actions .menu-toggle {
+    outline: 3px solid var(--accent-gold);
+    outline-offset: 3px;
+}
+
+/* Texto disponible para lectores de pantalla sin mostrarlo en pantalla. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Tipografía fluida (CRITERIO RECOMENDABLE) */
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+}
+
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 0.5rem; }
+p { font-size: clamp(0.95rem, 1.2vw, 1rem); }
+
+/* ==========================================================================
+   4. COMPONENTES Y ACCESIBILIDAD (Botones >= 44px)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.4rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    /* Accesibilidad: área táctil */
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 18px var(--accent-glow);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.btn-secondary:hover { background-color: var(--bg-surface-elevated); }
+
+.card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+/* ==========================================================================
+   5. ESTRUCTURA BASE (MOBILE FIRST)
+   ========================================================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-main);
+    opacity: 0.97;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.logo { font-weight: 700; font-size: 1.15rem; letter-spacing: 1px; }
+
+/* En móvil, la navegación aparece solo cuando se marca la casilla. */
+.main-nav, .btn-desktop-only { display: none; }
+
+.menu-checkbox:checked ~ .main-nav {
+    display: block;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1.25rem 1rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-top: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.menu-checkbox:checked ~ .main-nav .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.menu-checkbox:checked ~ .main-nav .nav-list a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    position: relative;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-primary);
+}
+
+/* Presentación principal */
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.hero-content { max-width: 38rem; }
+
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    background-color: rgba(244, 197, 66, 0.08);
+    border: 1px solid rgba(244, 197, 66, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero-lead { color: var(--text-muted); margin-bottom: 1.75rem; }
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Imagen principal y resplandor decorativo */
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 12% 8%;
+    background: var(--accent-primary);
+    filter: blur(80px);
+    opacity: 0.22;
+}
+
+.hero-picture { display: block; }
+
+.artwork-main {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.4);
+}
+
+/* Cuadrícula de poderes y juegos destacados */
+.bento-section { padding: 2.5rem 0; }
+.section-header { margin-bottom: 1.75rem; }
+.section-header p { color: var(--text-muted); }
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+/* Tarjetas de contenido */
+.art-card {
+    position: relative;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.art-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+}
+
+.art-img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 1rem;
+    background: var(--bg-surface-elevated);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.art-info {
+    padding: 1.25rem;
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+}
+
+/* Historia del personaje y ficha */
+.content-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0 4rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.tool-box {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.tool-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.tool-label { font-size: 0.85rem; color: var(--text-muted); }
+
+.status-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.status-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.status-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.status-ok { background-color: rgba(16, 185, 129, 0.12); color: var(--status-ok-text); }
+.status-warn { background-color: rgba(244, 197, 66, 0.15); color: var(--status-warn-text); }
+
+/* Pie de página */
+.site-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.footer-links a:hover { color: var(--text-primary); }
+.footer-links a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 500;}
+
+/* ==========================================================================
+   6. AJUSTES PARA TABLET Y ESCRITORIO
+   ========================================================================== */
+
+@media (min-width: 600px) {
+    .menu-checkbox { display: none; }
+    .menu-toggle { display: none; }
+    .main-nav {
+        display: block;
+        position: static;
+        padding: 0;
+        background: transparent;
+        border: 0;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        font-weight: 500;
+        color: var(--text-muted);
+    }
+
+    .nav-list a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .nav-list a:hover { color: var(--text-primary); }
+
+    .hero {
+        text-align: left;
+        padding: 4rem 0;
+    }
+
+    .hero-buttons { flex-direction: row; }
+
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .tools-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .btn-desktop-only { display: inline-flex; }
+
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 3rem;
+        padding: 5rem 0;
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Las tarjetas destacadas ocupan dos columnas. */
+    .card-span-2 { grid-column: span 2; }
+
+    /* Aumenta la altura de imagen en las tarjetas destacadas. */
+    .card-span-2 .art-img { height: 350px; }
+
+    .content-split {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+        gap: 2rem;
+    }
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Café del Barrio | Reservas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page page-contact">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Café del Barrio, inicio">
+        <img class="brand__logo" src="img/logo.jpg" alt="Logo del Café del Barrio" />
+        <span class="brand__name">Café del Barrio</span>
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <ul class="site-nav__list">
+          <li>
+            <a class="site-nav__link" href="index.html">Inicio</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="carta.html">Carta</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="galeria.html">Galería</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="nosotros.html">Nosotros</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="contacto.html" aria-current="page">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <header class="page-heading">
+        <p class="eyebrow">Nos encantará recibirte</p>
+        <h1 class="page-title">Reserva tu mesa</h1>
+        <p class="page-intro">Cuéntanos cuándo vienes y prepararemos tu visita.</p>
+      </header>
+      <form class="reservation-form" action="#" method="post">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required />
+          </div>
+          <div class="form-field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" autocomplete="tel" required />
+          </div>
+          <div class="form-field">
+            <label for="fecha">Fecha y hora</label>
+            <input type="datetime-local" id="fecha" name="fecha" required />
+          </div>
+          <div class="form-field">
+            <label for="n_personas">Número de personas</label>
+            <input type="number" id="n_personas" name="n_personas" min="1" max="20" value="2" required />
+          </div>
+          <div class="form-field">
+            <label for="conociste">¿Cómo nos conociste?</label>
+            <select id="conociste" name="conociste" required>
+              <option value="">Selecciona una opción</option>
+              <option value="amigo">Por un amigo</option>
+              <option value="redes_sociales">Por redes sociales</option>
+              <option value="anuncio">Por un anuncio</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="form-options">
+          <legend>¿Dónde prefieres sentarte?</legend>
+          <label class="choice"><input type="radio" name="zona" value="interior" required /> Interior</label>
+          <label class="choice"><input type="radio" name="zona" value="terraza" /> Terraza</label>
+        </fieldset>
+        <fieldset class="form-options">
+          <legend>Preferencias alimentarias</legend>
+          <label class="choice"><input type="checkbox" name="preferencias" value="sin_gluten" /> Sin gluten</label>
+          <label class="choice"><input type="checkbox" name="preferencias" value="vegetariano" /> Vegetariano</label>
+        </fieldset>
+        <div class="form-field">
+          <label for="comentarios">Comentarios adicionales</label>
+          <textarea id="comentarios" name="comentarios" rows="4" placeholder="Cuéntanos si tienes alguna petición especial"></textarea>
+        </div>
+        <label class="choice consent">
+          <input type="checkbox" id="condiciones" name="condiciones" required />
+          Acepto las condiciones de uso
+        </label>
+        <div class="form-actions">
+          <button class="button" type="submit">Enviar reserva</button>
+          <button class="button button--secondary" type="reset">Borrar formulario</button>
+        </div>
+      </form>
+    </main>
+    <footer class="site-footer">
+      <p>&copy; 2025 Café del Barrio. Todos los derechos reservados.</p>
+      <p><a href="../../index.html">Portfolio de Manuel</a></p>
+    </footer>
+  </body>
+</html>
