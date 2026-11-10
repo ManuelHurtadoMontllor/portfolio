@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos de idioma, vista móvil y descripción para buscadores. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f5f3ed">
@@ -10,9 +11,11 @@
     
 </head>
 <body>
+    <!-- Navegación principal; el control CSS despliega los enlaces en pantallas pequeñas. -->
     <header class="topbar">
         <a class="brand" href="#" aria-label="Nómada, inicio"><span class="brand-mark" aria-hidden="true">n</span> nómada</a>
-        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <input class="menu-toggle visually-hidden" type="checkbox" id="menu-toggle">
+        <label class="menu-button" for="menu-toggle">Menú <span aria-hidden="true">☰</span></label>
         <nav class="nav-links" aria-label="Navegación principal">
             <a href="#escapadas">Escapadas</a>
             <a href="#filosofia">Nuestra filosofía</a>
@@ -21,6 +24,7 @@
     </header>
 
     <main>
+        <!-- Presentación principal del proyecto con acceso directo a las escapadas. -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
                 <p class="eyebrow">Un atlas para perderse bien</p>
@@ -34,6 +38,7 @@
             <div class="hero-note"><span class="note-dot"></span> Lugares para quedarse un poco más</div>
         </section>
 
+        <!-- Introducción y catálogo de destinos, agrupados por categoría. -->
         <section class="intro" id="escapadas">
             <div>
                 <p class="intro-label">Una selección para ti</p>
@@ -43,24 +48,30 @@
         </section>
 
         <section class="destinations" aria-label="Escapadas recomendadas">
+            <!-- Los radios permiten filtrar las tarjetas sin JavaScript. -->
+            <input class="filter-input visually-hidden" type="radio" name="destination-filter" id="filter-all" checked>
+            <input class="filter-input visually-hidden" type="radio" name="destination-filter" id="filter-mountain">
+            <input class="filter-input visually-hidden" type="radio" name="destination-filter" id="filter-sea">
+            <input class="filter-input visually-hidden" type="radio" name="destination-filter" id="filter-village">
             <div class="section-heading">
                 <div>
                     <p class="intro-label">Elige tu ritmo</p>
                     <h2>¿Qué te pide el cuerpo?</h2>
                 </div>
                 <div class="filters" role="group" aria-label="Filtrar escapadas">
-                    <button class="filter active" type="button" data-filter="todas" aria-pressed="true">Todo</button>
-                    <button class="filter" type="button" data-filter="montana" aria-pressed="false">Montaña</button>
-                    <button class="filter" type="button" data-filter="mar" aria-pressed="false">Mar</button>
-                    <button class="filter" type="button" data-filter="pueblo" aria-pressed="false">Pueblo</button>
+                    <label class="filter" for="filter-all">Todo</label>
+                    <label class="filter" for="filter-mountain">Montaña</label>
+                    <label class="filter" for="filter-sea">Mar</label>
+                    <label class="filter" for="filter-village">Pueblo</label>
                 </div>
             </div>
+            <!-- Cada tarjeta incluye categoría, imagen y un botón para marcarla como favorita. -->
             <div class="card-grid">
                 <article class="destination-card" data-category="montana">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=85" alt="Cumbres alpinas bajo un cielo estrellado" loading="lazy">
                         <span class="card-tag">Montaña · 3 noches</span>
-                        <button class="save-button" type="button" aria-label="Guardar Refugio de Ordesa" aria-pressed="false">♡</button>
+                        <span class="save-button" aria-hidden="true">♡</span>
                     </div>
                     <div class="card-meta"><span>Huesca, Aragón</span><span>★ 4,9</span></div>
                     <h3 class="card-title">El refugio de Ordesa</h3>
@@ -70,7 +81,7 @@
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85" alt="Costa mediterránea bañada por la luz de la tarde" loading="lazy">
                         <span class="card-tag">Mar · 2 noches</span>
-                        <button class="save-button" type="button" aria-label="Guardar La cala escondida" aria-pressed="false">♡</button>
+                        <span class="save-button" aria-hidden="true">♡</span>
                     </div>
                     <div class="card-meta"><span>Cadaqués, Girona</span><span>★ 4,8</span></div>
                     <h3 class="card-title">La cala escondida</h3>
@@ -80,16 +91,16 @@
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=85" alt="Casas de colores en un pequeño pueblo junto al mar" loading="lazy">
                         <span class="card-tag">Pueblo · 4 noches</span>
-                        <button class="save-button" type="button" aria-label="Guardar Cinque Terre a pie" aria-pressed="false">♡</button>
+                        <span class="save-button" aria-hidden="true">♡</span>
                     </div>
                     <div class="card-meta"><span>Cinque Terre, Italia</span><span>★ 5,0</span></div>
                     <h3 class="card-title">Cinque Terre a pie</h3>
                     <p class="card-description">Cinco pueblos, caminos de piedra y el mar siempre cerca.</p>
                 </article>
             </div>
-            <p class="no-results" role="status">No hay escapadas en esta categoría por ahora.</p>
         </section>
 
+        <!-- Sección editorial que explica la filosofía de viaje de Nómada. -->
         <section class="manifesto" id="filosofia">
             <div class="manifesto-image" role="img" aria-label="Ciervos en un bosque al amanecer"></div>
             <div class="manifesto-copy">
@@ -100,19 +111,21 @@
             </div>
         </section>
 
+        <!-- Formulario de ejemplo: su botón no envía los datos. -->
         <section class="newsletter" id="newsletter">
             <p class="intro-label">Una carta, de vez en cuando</p>
             <h2>Un poquito de mundo<br>en tu buzón.</h2>
             <p class="newsletter-copy">Rutas nuevas, rincones secretos y buenas excusas para escaparte.</p>
-            <form class="newsletter-form">
+            <div class="newsletter-form">
                 <label for="email" class="visually-hidden">Tu correo electrónico</label>
-                <input id="email" name="email" type="email" placeholder="Tu correo electrónico" required>
-                <button type="submit">Me apunto <span aria-hidden="true">→</span></button>
-            </form>
-            <p class="newsletter-status" role="status" aria-live="polite"></p>
+                <input id="email" name="email" type="email" placeholder="Tu correo electrónico">
+                <button type="button">Me apunto <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="newsletter-note">Formulario de ejemplo; todavía no envía datos.</p>
         </section>
     </main>
 
+    <!-- Enlaces y marca al final de la página. -->
     <footer>
         <a class="brand" href="#" aria-label="Nómada, inicio"><span class="brand-mark" aria-hidden="true">n</span> nómada</a>
         <span>Hecho para ir más despacio. © 2026</span>
@@ -123,65 +136,5 @@
         </nav>
     </footer>
 
-    <script>
-        const filterButtons = document.querySelectorAll(".filter");
-        const cards = document.querySelectorAll(".destination-card");
-        const emptyMessage = document.querySelector(".no-results");
-
-        filterButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-                const category = button.dataset.filter;
-                let visibleCount = 0;
-
-                filterButtons.forEach((item) => {
-                    const selected = item === button;
-                    item.classList.toggle("active", selected);
-                    item.setAttribute("aria-pressed", String(selected));
-                });
-                cards.forEach((card) => {
-                    const visible = category === "todas" || card.dataset.category === category;
-                    card.hidden = !visible;
-                    if (visible) visibleCount += 1;
-                });
-                emptyMessage.style.display = visibleCount ? "none" : "block";
-            });
-        });
-
-        document.querySelectorAll(".save-button").forEach((button) => {
-            button.addEventListener("click", () => {
-                const saved = button.getAttribute("aria-pressed") !== "true";
-                button.setAttribute("aria-pressed", String(saved));
-                button.classList.toggle("saved", saved);
-                button.textContent = saved ? "♥" : "♡";
-            });
-        });
-
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navigation = document.querySelector(".nav-links");
-        menuToggle.addEventListener("click", () => {
-            const expanded = menuToggle.getAttribute("aria-expanded") !== "true";
-            menuToggle.setAttribute("aria-expanded", String(expanded));
-            menuToggle.setAttribute("aria-label", expanded ? "Cerrar menú" : "Abrir menú");
-            navigation.classList.toggle("open", expanded);
-        });
-        navigation.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () => {
-                navigation.classList.remove("open");
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.setAttribute("aria-label", "Abrir menú");
-            });
-        });
-
-        document.querySelector(".newsletter-form").addEventListener("submit", (event) => {
-            event.preventDefault();
-            const email = document.querySelector("#email");
-            if (!email.checkValidity()) {
-                email.reportValidity();
-                return;
-            }
-            document.querySelector(".newsletter-status").textContent = "¡Ya estás dentro! Nos vemos en tu buzón.";
-            email.value = "";
-        });
-    </script>
 </body>
 </html>

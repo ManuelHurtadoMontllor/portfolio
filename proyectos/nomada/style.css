@@ -1,3 +1,4 @@
+/* Colores y tipografías compartidos por toda la página. */
 :root {
             --paper: #f5f3ed;
             --ink: #193b35;
@@ -20,6 +21,7 @@
         a { color: inherit; text-decoration: none; }
         button, input { font: inherit; }
         button { color: inherit; }
+        /* Oculta etiquetas visualmente sin quitarlas del árbol accesible. */
         .visually-hidden {
             position: absolute;
             width: 1px;
@@ -30,6 +32,7 @@
             clip-path: inset(50%);
         }
 
+        /* Cabecera transparente superpuesta sobre la imagen principal. */
         .topbar {
             position: absolute;
             z-index: 3;
@@ -67,14 +70,17 @@
             border: 1px solid rgba(255,255,255,.65);
             border-radius: 30px;
         }
-        .menu-toggle {
+        .menu-button {
             display: none;
             border: 0;
             background: transparent;
             color: white;
+            cursor: pointer;
             font-size: 25px;
         }
+        .menu-toggle:focus-visible + .menu-button { outline: 2px solid white; outline-offset: 4px; }
 
+        /* Portada con fotografía y degradado para mantener el texto legible. */
         .hero {
             position: relative;
             display: flex;
@@ -151,6 +157,7 @@
         }
         .note-dot { width: 7px; height: 7px; border-radius: 50%; background: #f0ad79; }
 
+        /* Presentación del catálogo y sus filtros. */
         .intro {
             display: flex;
             align-items: center;
@@ -168,6 +175,7 @@
         }
         .intro-copy { max-width: 380px; margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
 
+        /* Tarjetas de destinos y controles de filtrado. */
         .destinations { padding: 13px 7.2% 88px; }
         .section-heading {
             display: flex;
@@ -179,6 +187,7 @@
         .section-heading .intro-label { margin-bottom: 9px; }
         .filters { display: flex; flex-wrap: wrap; gap: 7px; }
         .filter {
+            display: inline-block;
             padding: 9px 14px;
             border: 1px solid var(--line);
             border-radius: 30px;
@@ -187,9 +196,31 @@
             cursor: pointer;
             font-size: 11px;
             transition: .2s;
+            user-select: none;
         }
-        .filter:hover, .filter.active { border-color: var(--ink); background: var(--ink); color: white; }
+        .filter:hover { border-color: var(--ink); }
+        .filter-input:focus-visible ~ .section-heading .filter { outline: none; }
+        #filter-all:focus-visible ~ .section-heading .filter[for="filter-all"],
+        #filter-mountain:focus-visible ~ .section-heading .filter[for="filter-mountain"],
+        #filter-sea:focus-visible ~ .section-heading .filter[for="filter-sea"],
+        #filter-village:focus-visible ~ .section-heading .filter[for="filter-village"] {
+            outline: 2px solid var(--orange);
+            outline-offset: 3px;
+        }
+        #filter-all:checked ~ .section-heading .filter[for="filter-all"],
+        #filter-mountain:checked ~ .section-heading .filter[for="filter-mountain"],
+        #filter-sea:checked ~ .section-heading .filter[for="filter-sea"],
+        #filter-village:checked ~ .section-heading .filter[for="filter-village"] {
+            border-color: var(--ink);
+            background: var(--ink);
+            color: white;
+        }
         .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        #filter-mountain:checked ~ .card-grid .destination-card:not([data-category="montana"]),
+        #filter-sea:checked ~ .card-grid .destination-card:not([data-category="mar"]),
+        #filter-village:checked ~ .card-grid .destination-card:not([data-category="pueblo"]) {
+            display: none;
+        }
         .destination-card { min-width: 0; }
         .card-image {
             position: relative;
@@ -223,17 +254,13 @@
             border: 0;
             border-radius: 50%;
             background: rgba(255,255,255,.92);
-            cursor: pointer;
             font-size: 17px;
-            transition: transform .2s;
         }
-        .save-button:hover { transform: scale(1.1); }
-        .save-button.saved { color: #d76b50; }
         .card-meta { display: flex; justify-content: space-between; margin: 17px 0 7px; color: var(--muted); font-size: 10px; letter-spacing: .6px; text-transform: uppercase; }
         .card-title { margin: 0; font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -.5px; }
         .card-description { margin: 7px 0 0; color: var(--muted); font-size: 12px; }
-        .no-results { display: none; padding: 45px 10px; color: var(--muted); text-align: center; }
 
+        /* Bloque editorial que combina imagen y texto. */
         .manifesto {
             display: grid;
             min-height: 440px;
@@ -250,6 +277,7 @@
         .text-link { width: fit-content; padding-bottom: 6px; border-bottom: 1px solid var(--orange); font-size: 12px; font-weight: 700; }
         .text-link span { margin-left: 11px; color: var(--orange); }
 
+        /* Suscripción y pie de página. */
         .newsletter { padding: 84px 20px 88px; text-align: center; }
         .newsletter .intro-label { margin-bottom: 12px; }
         .newsletter h2 { margin-bottom: 12px; font-family: var(--serif); font-size: clamp(35px, 5vw, 54px); font-weight: 400; letter-spacing: -2px; }
@@ -257,15 +285,18 @@
         .newsletter-form { display: flex; width: min(430px, 100%); margin: 0 auto; border-bottom: 1px solid #aeb1a6; }
         .newsletter-form input { flex: 1; min-width: 0; padding: 13px 5px; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 12px; }
         .newsletter-form button { padding: 0 4px 0 15px; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 12px; font-weight: 700; }
-        .newsletter-status { min-height: 18px; margin: 12px 0 0; color: #2e7158; font-size: 12px; }
+        .newsletter-note { margin: 12px 0 0; color: var(--muted); font-size: 10px; }
         footer { display: flex; align-items: center; justify-content: space-between; padding: 24px 7.2%; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
         footer .brand { color: var(--ink); font-size: 15px; }
         footer .brand-mark { width: 25px; height: 25px; border-color: var(--ink); font-size: 13px; }
         .footer-links { display: flex; gap: 23px; }
 
+        /* Ajustes para tablet y móvil: menú desplegable y tarjetas en dos columnas. */
+        /* En móvil, el menú se despliega con una casilla de verificación HTML. */
         @media (max-width: 760px) {
             .topbar { padding: 20px 6%; }
-            .menu-toggle { display: block; }
+            .menu-button { display: block; font-size: 0; }
+            .menu-button span { font-size: 25px; }
             .nav-links {
                 position: absolute;
                 top: 68px;
@@ -278,7 +309,7 @@
                 border: 1px solid rgba(255,255,255,.2);
                 background: rgba(25,59,53,.97);
             }
-            .nav-links.open { display: flex; flex-direction: column; }
+            .menu-toggle:checked ~ .nav-links { display: flex; flex-direction: column; }
             .nav-links a { padding: 13px 3px; }
             .nav-cta { margin: 6px 0 10px; padding: 10px 12px !important; }
             .hero { min-height: 660px; background-position: 58% center; }
@@ -295,6 +326,7 @@
             .manifesto-copy { padding: 48px 9%; }
             footer { gap: 20px; flex-wrap: wrap; padding: 22px 6%; }
         }
+        /* En teléfonos estrechos, las tarjetas pasan a una sola columna. */
         @media (max-width: 480px) {
             .hero { min-height: 620px; }
             .hero-content { width: 84%; margin-left: 8%; }
@@ -309,6 +341,7 @@
             .manifesto-image { min-height: 250px; }
             footer { align-items: flex-start; flex-direction: column; }
         }
+        /* Respeta la preferencia del usuario de reducir movimiento. */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
         }
