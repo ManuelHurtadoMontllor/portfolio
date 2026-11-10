@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos básicos para el idioma, la adaptación a móviles y la vista previa del sitio. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b1426">
     <meta name="description" content="Portfolio personal de Manuel Hurtado: proyectos de diseño y desarrollo web.">
     <title>Manuel Hurtado | Portfolio</title>
+    <!-- Tailwind CSS permite aplicar estilos mediante clases directamente en el HTML. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html {
+            /* Hace suave el desplazamiento al pulsar enlaces internos del menú. */
             scroll-behavior: smooth;
         }
 
         @media (prefers-reduced-motion: reduce) {
             html {
+                /* Respeta la preferencia del usuario de reducir las animaciones. */
                 scroll-behavior: auto;
             }
         }
     </style>
 </head>
 <body class="bg-[#0b1426] text-slate-100 antialiased">
+    <!-- Cabecera con el logotipo y enlaces que llevan a las secciones de esta página. -->
     <header class="border-b border-white/10">
         <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5" aria-label="Navegación principal">
             <a href="#inicio" class="text-lg font-black tracking-tight text-white">MH<span class="text-[#dc143c]">.</span></a>
@@ -32,6 +37,7 @@
     </header>
 
     <main>
+        <!-- Presentación inicial: nombre, descripción y acceso directo a los proyectos. -->
         <section id="inicio" class="relative overflow-hidden border-b border-white/10">
             <div aria-hidden="true" class="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full bg-[#dc143c]/10 blur-3xl"></div>
             <div class="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:py-28 md:grid-cols-[1fr_auto] md:items-end">
@@ -57,6 +63,7 @@
             <span aria-hidden="true" class="absolute bottom-0 right-[8%] hidden h-20 w-px bg-gradient-to-b from-[#dc143c] to-transparent md:block"></span>
         </section>
 
+        <!-- Lista de proyectos; cada tarjeta enlaza a la página correspondiente. -->
         <section id="proyectos" class="mx-auto max-w-6xl px-6 py-20 sm:py-28">
             <div class="mb-12 grid gap-5 border-b border-white/15 pb-7 sm:grid-cols-[1fr_auto] sm:items-end">
                 <div>
@@ -71,7 +78,9 @@
                     <span class="text-[#ff4969]">01 <span class="text-slate-500">/ Proyecto destacado</span></span>
                     <span class="text-slate-500">Diseño responsive</span>
                 </div>
+                <!-- La captura y el enlace permiten abrir el proyecto destacado. -->
                 <a href="proyectos/shadow/index.html" class="relative block aspect-[16/10] overflow-hidden border border-white/10 bg-[#08090d]" aria-label="Abrir el proyecto Shadow the Hedgehog">
+                    <!-- loading="lazy" aplaza la carga hasta que la imagen se acerca a la pantalla. -->
                     <img src="proyectos/shadow/captura-ordenador.png" alt="Captura de la página responsive de Shadow the Hedgehog en ordenador" class="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.015]" loading="lazy">
                     <span class="absolute bottom-4 left-4 bg-[#0b1426]/90 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white sm:bottom-6 sm:left-6">Shadow the Hedgehog · Sitio informativo</span>
                     <span aria-hidden="true" class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-[#dc143c] text-lg text-white transition group-hover:scale-110 sm:right-6 sm:top-6">↗</span>
@@ -92,6 +101,7 @@
                 <article class="group grid gap-5 border-b border-white/15 py-7 sm:grid-cols-[120px_1fr_1.2fr_auto] sm:items-center sm:gap-7">
                     <span class="text-4xl font-black tracking-tight text-[#dc143c]/80">02</span>
                     <a href="proyectos/arngren/index.html" class="relative block aspect-[4/3] overflow-hidden bg-[#e9efdf] sm:aspect-square" aria-label="Abrir el rediseño web de Arngren">
+                        <!-- Esta imagen se obtiene desde el sitio de Arngren y se carga al acercarse a la pantalla. -->
                         <img src="https://arngren.net/sitebuilder/images/elsykkel-SAMMENLEGGBAR-9T_7TK29F-247x186.jpg" alt="Bicicleta eléctrica del catálogo de Arngren" class="h-full w-full object-contain transition duration-500 group-hover:scale-105" loading="lazy">
                     </a>
                     <div>
@@ -121,6 +131,7 @@
             </div>
         </section>
 
+        <!-- Información personal, perfil público de GitHub y tecnologías de interés. -->
         <section id="sobre-mi" class="border-y border-white/10 bg-[#101c31]">
             <div class="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[0.7fr_1.3fr] md:items-start md:py-20">
                 <div>
@@ -131,6 +142,7 @@
                     <p class="max-w-2xl text-lg leading-8 text-slate-300">
                         Estudio Desarrollo de Aplicaciones Multiplataforma. El backend es lo que más me llama la atención, pero también me gusta dar forma a la experiencia completa que hay detrás de una aplicación.
                     </p>
+                    <!-- target="_blank" abre GitHub en otra pestaña; rel evita acceso desde esa pestaña. -->
                     <a href="https://github.com/ManuelHurtadoMontllor" target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[#ff4969]">
                         Ver mi perfil de GitHub <span aria-hidden="true" class="text-[#ff4969]">↗</span>
                     </a>
@@ -148,6 +160,7 @@
             </div>
         </section>
 
+        <!-- Formulario de contacto visual: todavía no envía datos porque no tiene backend conectado. -->
         <section id="contacto" class="mx-auto grid max-w-6xl gap-8 px-6 py-20 sm:py-24 md:grid-cols-2">
             <div>
                 <p class="text-xs font-bold uppercase tracking-[0.24em] text-[#ff4969]">Siguiente paso</p>
@@ -168,11 +181,13 @@
                     <textarea id="mensaje" name="mensaje" rows="4" required class="w-full resize-y border border-white/15 bg-[#101c31] px-4 py-3 text-white focus:border-[#ff4969] focus:outline-none focus:ring-2 focus:ring-[#dc143c]/40"></textarea>
                 </div>
                 <p id="form-note" class="text-sm text-slate-400 sm:col-span-2">El formulario todavía no está conectado para enviar mensajes.</p>
+                <!-- El botón está desactivado para indicar que el envío aún no está disponible. -->
                 <button type="submit" disabled aria-describedby="form-note" class="w-fit cursor-not-allowed bg-[#dc143c]/50 px-6 py-3 font-semibold text-white/70">Envío próximamente</button>
             </form>
         </section>
     </main>
 
+    <!-- Pie de página con el copyright y un enlace para volver al inicio. -->
     <footer class="border-t border-white/10 px-6 py-6">
         <div class="mx-auto flex max-w-6xl flex-col gap-2 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
             <p>© 2026 Manuel Hurtado</p>
